@@ -1,0 +1,35 @@
+<template>
+  <require from="./styles/style.scss"></require>
+  <header>
+    <h1>${message}</h1>
+  </header>
+  <main>
+    <section class="calculator__body">
+      <div class="calculator__display">
+        <h2>${display}</h2>
+      </div>
+      <div class="calculator__grid">
+        <div class="calculator__buttons">
+          <button class="calculator__button" click.delegate="clearTotal()">A/C</button>
+          <button class="calculator__button" click.delegate="polaritySwap()">+/-</button>
+          <button class="calculator__button" click.delegate="getPercent()">%</button>
+
+          <button 
+            class="calculator__button calculator__button--${number}" click.delegate="appendNumber(number)"
+            repeat.for="number of numbers"
+          >
+            ${number}
+          </button>
+          
+        </div>
+        <div class="calculator__operators">
+          <button class="calculator__button" click.delegate="setActiveTotal('/')">/</button>
+          <button class="calculator__button" click.delegate="setActiveTotal('*')">x</button>
+          <button class="calculator__button" click.delegate="setActiveTotal('-')">-</button>
+          <button class="calculator__button" click.delegate="setActiveTotal('+')">+</button>
+          <button class="calculator__button" click.delegate="setTotal()">=</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</template>
